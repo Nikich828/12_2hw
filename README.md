@@ -62,7 +62,9 @@ docker exec -it mysqlhw12 mysql -u root -p
 1.4. Дайте все права для пользователя sys_temp.
 
 CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY '12345';
+
 SELECT user FROM mysql.user;
+
 GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost' WITH GRANT OPTION;
 
 ![alt text](https://github.com/Nikich828/12_2hw/blob/master/12.jpeg)
@@ -79,6 +81,7 @@ SELECT * FROM information_schema.user_privileges WHERE GRANTEE="'sys_temp'@'loca
 1.6. Переподключитесь к базе данных от имени sys_temp.
 
 SYSTEM mysql -u sys_temp -p
+
 SELECT user();
 
 ![alt text](https://github.com/Nikich828/12_2hw/blob/master/7.jpeg)
@@ -86,6 +89,7 @@ SELECT user();
 1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
 
 wget https://downloads.mysql.com/docs/sakila-db.zip
+
 unzip sakila-db.zip
 
 ![alt text](https://github.com/Nikich828/12_2hw/blob/master/8.jpeg)
@@ -93,8 +97,11 @@ unzip sakila-db.zip
 1.7. Восстановите дамп в базу данных.
 
 docker exec -i mysqlhw12 mysql -uroot -proot < sakila-db/sakila-schema.sql
+
 docker exec -i mysqlhw12 mysql -uroot -proot < sakila-db/sakila-data.sql
+
 docker exec -it mysqlhw12 mysql -uroot -proot -e "SHOW DATABASES;"
+
 (Написал  -uroot -proot слитно, т.к. при перенаправлении ввода классический синтаксис не работает)
 
 ![alt text](https://github.com/Nikich828/12_2hw/blob/master/9.jpeg)
@@ -102,6 +109,7 @@ docker exec -it mysqlhw12 mysql -uroot -proot -e "SHOW DATABASES;"
 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
 
 USE sakila;
+
 SHOW TABLES;
 
 ![alt text](https://github.com/Nikich828/12_2hw/blob/master/10.jpeg)
