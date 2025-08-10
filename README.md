@@ -54,7 +54,9 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 docker run --name mysqlhw12 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:8.0
 
 ![alt text](https://github.com/Nikich828/12_2hw/blob/master/1.jpeg)
+
 docker exec -it mysqlhw12 mysql -u root -p
+
 ![alt text](https://github.com/Nikich828/12_2hw/blob/master/2.jpeg)
 
 1.2. Создайте учётную запись sys_temp.
